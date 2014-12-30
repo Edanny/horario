@@ -20,16 +20,14 @@ public class PruebaDeTexto {
      */
     public static void main(String[] args) {
        String saludo="E danny Cari f";
-       try
-       {
+       try{
            File archivo=new File("texto.txt");
-           FileWriter escribir=new FileWriter(archivo,true);
-           escribir.write(saludo);
-           escribir.close();
+           try (FileWriter escribir = new FileWriter(archivo,true)) {
+               escribir.write(saludo);
+           }
            System.out.println("Archivo Guardado correctamente: " +saludo);
            
-       }
-       catch(Exception e){
+       }catch(Exception e){
            System.out.println("Error Al Escribir");
            
        }
